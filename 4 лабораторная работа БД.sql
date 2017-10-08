@@ -1,4 +1,4 @@
-/*Задание 48*/
+/*Р—Р°РґР°РЅРёРµ 48*/
 CREATE VIEW v_caterer
   (ID_caterer,caterer_NAME,contact_NAME,contact_SURNAME)
 AS SELECT t_caterer.ID_caterer.NAME,t_contact.NAME,t_contact.SURNAME
@@ -10,12 +10,12 @@ SELECT * FROM v_caterer;
 INSERT INTO v_caterer (
   ID_caterer,caterer_NAME,contact_NAME,contact_SURNAME)
   VALUES 
-  (seq_caterer.NEXTVAL, 'Поставщик 1', 'Иван','Сергеев');
+  (seq_caterer.NEXTVAL, 'РџРѕСЃС‚Р°РІС€РёРє 1', 'РРІР°РЅ','РЎРµСЂРіРµРµРІ');
 
 DELETE FROM V_caterer
 	WHERE ID_caterer = 3;
 
-/*Задание 49*/
+/*Р—Р°РґР°РЅРёРµ 49*/
 CREATE OR REPLACE VIEW v_surplus (material,store,VOLUME)
   AS SELECT t_material.NAME,t_store.NAME,SUM (t_surplus.VOLUME)
   FROM t_material JOIN t_surplus ON
@@ -23,7 +23,7 @@ CREATE OR REPLACE VIEW v_surplus (material,store,VOLUME)
   ON t_surplus.ID_store = t_store.ID.store
   GROUP BY t_material.NAME,t_store.NAME;
 
-/*Задание 50*/
+/*Р—Р°РґР°РЅРёРµ 50*/
 CREATE VIEW v_supply
   (caterer_NAME,material,messure,supply_date,PRISE,VOLUME,SUM)
  AS SELEST t_caterer.NAME,t_materil.NAME,t_mesure.NAME,
@@ -34,7 +34,7 @@ CREATE VIEW v_supply
   ON t_material.ID_messure = t_messure.ID_messure JOIN t_inprice
   ON t_material.ID_material = t_inprice.ID_material;
 
-/*Задание 51*/
+/*Р—Р°РґР°РЅРёРµ 51*/
 CREATE VIEW v_store
   (store, material, measure, sum)
 AS SELECT t_store.NAME, t_material.NAME, t_measure.NAME,sum(t_deliver.VOLUME) 
@@ -45,7 +45,7 @@ FROM t_deliver JOIN t_store
   WHERE deliver_DATE BETWEEN '01.01.2017' AND '31.12.2017'
 GROUP BY t_store.NAME,t_material.NAME, T_measure.NAME;
 
-/*задание 52*/
+/*Р—Р°РґР°РЅРёРµ 52*/
 CREATE OR REPLACE VIEW v_supply_price
   (id, material, volume, store, price, summ)
 AS SELECT t_supply.id_supply, t_material.name, 
